@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #000;
+  color: #FFF;
+}
+
 #root,
 .cards-container {
   display: flex;
@@ -29,7 +34,7 @@
 .card {
   width: 280px;
   height: 380px;
-  border: 1px solid black;
+  border: 1px solid #FFF;
   border-radius: 3px;
   margin: 20px 30px;
   padding: 20px;
