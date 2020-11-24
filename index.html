@@ -19,13 +19,13 @@
         <div class="card" v-for="film in filmsList">
           <ul>
             <li class="title">
-              Titolo: + {{film.title}}
+              Titolo: {{film.title}}
             </li>
             <li class="original-title">
-              Titolo originale: + {{film.original_title}}
+              Titolo originale: {{film.original_title}}
             </li>
             <li class="original-language">
-              Lingua originale: + {{film.original_language}}
+              <img :src="'img/' + film.original_language + '.png'" :alt="film.original_language">
             </li>
             <li class="vote">
               <i class="fas fa-star" v-for="vote in film.vote_average"></i>
