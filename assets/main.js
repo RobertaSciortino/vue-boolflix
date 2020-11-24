@@ -3,7 +3,8 @@ var app = new Vue ({
   data: {
     userSearch: '',
     filmsList: [],
-    filmsListLength: 20
+    filmsListLength: 20,
+    maxVote: 5
   },
   methods: {
     //intercetto il click sul button o il keyup invio in input e salvo cio' che ha digitato l'utente
@@ -19,7 +20,16 @@ var app = new Vue ({
       }).then((response) => {
         this.filmsList = response.data.results;
         console.log(this.filmsList);
+
+        //assegno al voto il valore numerico su base 5 corrispondente
+        this.filmsList.forEach((film) => {
+          film.vote_average = Math.round(film.vote_average / 2);
+        });
       });
+
+
     }
   }
+
+
 });
