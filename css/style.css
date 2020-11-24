@@ -10,7 +10,9 @@ body {
 }
 
 #root,
-.cards-container {
+.cards-container,
+.films-list,
+.series-list {
   display: flex;
 }
 
@@ -23,6 +25,15 @@ body {
 
 .searchbar {
   margin: 20px;
+}
+
+.films-list,
+.series-list {
+  flex-direction: column;
+}
+
+h2 {
+  align-self: center;
 }
 
 .cards-container {
