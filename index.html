@@ -14,6 +14,24 @@
         <button @click="search()" type="button" name="button">Cerca</button>
       </div>
 
+      <div class="cards-container">
+        <div class="card" v-for="film in filmsList">
+          <ul>
+            <li class="title">
+              Titolo: + {{film.title}}
+            </li>
+            <li class="original-title">
+              Titolo originale: + {{film.original_title}}
+            </li>
+            <li class="original-language">
+              Lingua originale: + {{film.original_language}}
+            </li>
+            <li class="vote">
+              Voto + {{film.vote_average}}
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
 
     <script src="assets/main.js" charset="utf-8"></script>

@@ -2,7 +2,8 @@ var app = new Vue ({
   el: '#root',
   data: {
     userSearch: '',
-    filmsList: []
+    filmsList: [],
+    filmsListLength: 20
   },
   methods: {
     //intercetto il click sul button o il keyup invio in input e salvo cio' che ha digitato l'utente
@@ -17,7 +18,7 @@ var app = new Vue ({
         }
       }).then((response) => {
         this.filmsList = response.data.results;
-        console.log(response.data.results);
+        console.log(this.filmsList);
       });
     }
   }
