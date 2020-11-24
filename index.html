@@ -15,25 +15,54 @@
         <button @click="search()" type="button" name="button">Cerca</button>
       </div>
 
-      <div class="cards-container">
-        <div class="card" v-for="film in filmsList">
-          <ul>
-            <li class="title">
-              Titolo: {{film.title}}
-            </li>
-            <li class="original-title">
-              Titolo originale: {{film.original_title}}
-            </li>
-            <li class="original-language">
-              <img :src="'img/' + film.original_language + '.png'" :alt="film.original_language">
-            </li>
-            <li class="vote">
-              <i class="fas fa-star" v-for="vote in film.vote_average"></i>
-              <i class="far fa-star" v-for="vote in (maxVote - film.vote_average)"></i>
-            </li>
-          </ul>
+      <main>
+        <div class="films-list">
+          <h2 v-if="filmsList.length">Film:</h2>
+          <div class="cards-container">
+            <div class="card" v-for="film in filmsList">
+              <ul>
+                <li class="title">
+                  Titolo: {{film.title}}
+                </li>
+                <li class="original-title">
+                  Titolo originale: {{film.original_title}}
+                </li>
+                <li class="original-language">
+                  <img :src="'img/' + film.original_language + '.png'" :alt="film.original_language">
+                </li>
+                <li class="vote">
+                  <i class="fas fa-star" v-for="vote in film.vote_average"></i>
+                  <i class="far fa-star" v-for="vote in (maxVote - film.vote_average)"></i>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
+
+        <div class="series-list">
+          <h2 v-if="seriesList.length">Serie TV</h2>
+          <div class="cards-container">
+            <div class="card" v-for="serie in seriesList">
+              <ul>
+                <li class="title">
+                  Titolo: {{serie.name}}
+                </li>
+                <li class="original-title">
+                  Titolo originale: {{serie.original_title}}
+                </li>
+                <li class="original-language">
+                  <img :src="'img/' + serie.original_language + '.png'" :alt="serie.original_language">
+                </li>
+                <li class="vote">
+                  <i class="fas fa-star" v-for="vote in serie.vote_average"></i>
+                  <i class="far fa-star" v-for="vote in (maxVote - serie.vote_average)"></i>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </main>
+
     </div>
 
     <script src="assets/main.js" charset="utf-8"></script>
