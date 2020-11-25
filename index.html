@@ -30,6 +30,8 @@
           <h2 v-if="filmsList.length">Film:</h2>
           <div class="cards-container">
             <div class="card" v-for="film in filmsList">
+              <img class="image-not-available" v-if="film.poster_path == null" src="https://www.officinezambrano.it/s/cc_images/cache_72447477.jpg?t=1548731368" alt="">
+              <img v-else :src="'https://image.tmdb.org/t/p/w185' + film.poster_path" alt="">
               <ul>
                 <li class="title">
                   Titolo: {{film.title}}
@@ -42,6 +44,7 @@
                   Lingua originale:
                   <img :src="'img/' + film.original_language + '.png'" :alt="film.original_language">
                 </li>
+
                 <li v-else class="original-language">
                   Lingua originale: {{film.original_language}}
                 </li>
