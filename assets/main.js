@@ -6,8 +6,7 @@ var app = new Vue ({
     maxVote: 5,
     seriesList: [],
     searching: false,
-    languages: ['ch', 'de', 'en', 'es', 'fr', 'it', 'ja'],
-    flagVisible: false
+    languages: ['ch', 'de', 'en', 'es', 'fr', 'it', 'ja']
   },
   methods: {
     search() {
@@ -27,7 +26,7 @@ var app = new Vue ({
           //assegno al voto il valore numerico su base 5 corrispondente
           this.filmsList.forEach((film) => {
             film.vote_average = Math.round(film.vote_average / 2);
-            this.flagVisible = this.languages.includes(film.original_language)
+            film.flagVisible = this.languages.includes(film.original_language)
           });
         });
 
@@ -43,6 +42,7 @@ var app = new Vue ({
           //assegno al voto il valore numerico su base 5 corrispondente
           this.seriesList.forEach((serie) => {
             serie.vote_average = Math.round(serie.vote_average / 2);
+            serie.flagVisible = this.languages.includes(serie.original_language)
           });
         });
 
