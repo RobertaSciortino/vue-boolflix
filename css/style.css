@@ -7,6 +7,7 @@
 body {
   font-family: 'Montserrat', sans-serif;
   color: #FFF;
+  background-color: #333;
 }
 
 header {
@@ -92,6 +93,10 @@ ul {
 
 .original-language img {
   width: 30px;
+}
+
+[v-cloak] {
+  display: none;
 }
 
 /* spinner */
