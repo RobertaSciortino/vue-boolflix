@@ -5,6 +5,7 @@ var app = new Vue ({
     filmsList: [],
     maxVote: 5,
     seriesList: [],
+    searching: false,
     languages: ['ch', 'de', 'en', 'es', 'fr', 'it', 'ja'],
     flagVisible: false
   },
