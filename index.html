@@ -10,10 +10,15 @@
   </head>
   <body>
     <div id="root">
-      <div class="searchbar">
-        <input @keyup.enter="search()" type="text" name="" value="" v-model="userSearch">
-        <button @click="search()" type="button" name="button">Cerca</button>
-      </div>
+      <header>
+        <div class="logo">
+          BOOLFLIX
+        </div>
+        <div class="searchbar">
+          <input @keyup.enter="search()" type="text" name="" value="" v-model="userSearch">
+          <button @click="search()" type="button" name="button">Cerca</button>
+        </div>
+      </header>
 
       <main>
         <div class="films-list">
@@ -27,9 +32,15 @@
                 <li class="original-title">
                   Titolo originale: {{film.original_title}}
                 </li>
-                <li class="original-language">
+
+                <li v-if="flagVisible" class="original-language">
+                  Lingua originale:
                   <img :src="'img/' + film.original_language + '.png'" :alt="film.original_language">
                 </li>
+                <li v-else class="original-language">
+                  Lingua originale: {{film.original_language}}
+                </li>
+
                 <li class="vote">
                   <i class="fas fa-star" v-for="vote in film.vote_average"></i>
                   <i class="far fa-star" v-for="vote in (maxVote - film.vote_average)"></i>
