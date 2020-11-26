@@ -26,60 +26,69 @@
           <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div>
 
-        <div v-else-if="filmsList.length || seriesList.length" class="films-list">
+        <div v-else-if="filmsList.length || seriesList.length" class="results">
           <h2>Film:</h2>
           <div class="cards-container">
-            <div class="card" v-for="film in filmsList">
-              <img class="image-not-available" v-if="film.poster_path == null" src="https://www.officinezambrano.it/s/cc_images/cache_72447477.jpg?t=1548731368" alt="">
-              <img v-else :src="'https://image.tmdb.org/t/p/w185' + film.poster_path" alt="">
-              <ul>
-                <li class="title">
-                  Titolo: {{film.title}}
-                </li>
-                <li class="original-title">
-                  Titolo originale: {{film.original_title}}
-                </li>
-
-                <li v-if="film.flagVisible" class="original-language">
-                  Lingua originale:
-                  <img :src="'img/' + film.original_language + '.png'" :alt="film.original_language">
-                </li>
-                <li v-else class="original-language">
-                  Lingua originale: {{film.original_language}}
-                </li>
-
-                <li class="vote">
-                  <i class="fas fa-star" v-for="vote in film.vote_average"></i>
-                  <i class="far fa-star" v-for="vote in (maxVote - film.vote_average)"></i>
-                </li>
-              </ul>
+            <div class="flip-card" v-for="film in filmsList">
+              <div class="card">
+                <div class="poster">
+                  <img class="image-not-available" v-if="film.poster_path == null" src="https://www.officinezambrano.it/s/cc_images/cache_72447477.jpg?t=1548731368" alt="">
+                  <img v-else :src="'https://image.tmdb.org/t/p/w342' + film.poster_path" alt="">
+                </div>
+                <div class="info">
+                  <ul>
+                    <li class="title">
+                      Titolo: {{film.title}}
+                    </li>
+                    <li class="original-title">
+                      Titolo originale: {{film.original_title}}
+                    </li>
+                    <li v-if="film.flagVisible" class="original-language">
+                      Lingua originale:
+                      <img :src="'img/' + film.original_language + '.png'" :alt="film.original_language">
+                    </li>
+                    <li v-else class="original-language">
+                      Lingua originale: {{film.original_language}}
+                    </li>
+                    <li class="vote">
+                      <i class="fas fa-star" v-for="vote in film.vote_average"></i>
+                      <i class="far fa-star" v-for="vote in (maxVote - film.vote_average)"></i>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
-
           <h2>Serie TV:</h2>
           <div class="cards-container">
-            <div class="card" v-for="serie in seriesList">
-              <img class="image-not-available" v-if="serie.poster_path == null" src="https://www.officinezambrano.it/s/cc_images/cache_72447477.jpg?t=1548731368" alt="">
-              <img v-else :src="'https://image.tmdb.org/t/p/w185' + serie.poster_path" alt="">
-              <ul>
-                <li class="title">
-                  Titolo: {{serie.name}}
-                </li>
-                <li class="original-title">
-                  Titolo originale: {{serie.original_title}}
-                </li>
-                <li v-if="serie.flagVisible" class="original-language">
-                  Lingua originale:
-                  <img :src="'img/' + serie.original_language + '.png'" :alt="serie.original_language">
-                </li>
-                <li v-else class="original-language">
-                  Lingua originale: {{serie.original_language}}
-                </li>
-                <li class="vote">
-                  <i class="fas fa-star" v-for="vote in serie.vote_average"></i>
-                  <i class="far fa-star" v-for="vote in (maxVote - serie.vote_average)"></i>
-                </li>
-              </ul>
+            <div class="flip-card"  v-for="serie in seriesList">
+              <div class="card">
+                <div class="poster">
+                  <img class="image-not-available" v-if="serie.poster_path == null" src="https://www.officinezambrano.it/s/cc_images/cache_72447477.jpg?t=1548731368" alt="">
+                  <img v-else :src="'https://image.tmdb.org/t/p/w342' + serie.poster_path" alt="">
+                </div>
+                <div class="info">
+                  <ul>
+                    <li class="title">
+                      Titolo: {{serie.name}}
+                    </li>
+                    <li class="original-title">
+                      Titolo originale: {{serie.original_title}}
+                    </li>
+                    <li v-if="serie.flagVisible" class="original-language">
+                      Lingua originale:
+                      <img :src="'img/' + serie.original_language + '.png'" :alt="serie.original_language">
+                    </li>
+                    <li v-else class="original-language">
+                      Lingua originale: {{serie.original_language}}
+                    </li>
+                    <li class="vote">
+                      <i class="fas fa-star" v-for="vote in serie.vote_average"></i>
+                      <i class="far fa-star" v-for="vote in (maxVote - serie.vote_average)"></i>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
