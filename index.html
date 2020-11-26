@@ -54,6 +54,9 @@
                       <i class="fas fa-star" v-for="vote in film.vote_average"></i>
                       <i class="far fa-star" v-for="vote in (maxVote - film.vote_average)"></i>
                     </li>
+                    <li class="overview">
+                      Descrizione: {{film.overview}}
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -85,6 +88,9 @@
                     <li class="vote">
                       <i class="fas fa-star" v-for="vote in serie.vote_average"></i>
                       <i class="far fa-star" v-for="vote in (maxVote - serie.vote_average)"></i>
+                    </li>
+                    <li class="overview">
+                      Descrizione: {{serie.overview}}
                     </li>
                   </ul>
                 </div>
