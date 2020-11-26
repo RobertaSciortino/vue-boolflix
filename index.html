@@ -26,7 +26,7 @@
           <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div>
 
-        <div v-else-if="filmsList.length" class="films-list">
+        <div v-else-if="filmsList.length || seriesList.length" class="films-list">
           <h2>Film:</h2>
           <div class="cards-container">
             <div class="card" v-for="film in filmsList">
@@ -55,9 +55,7 @@
               </ul>
             </div>
           </div>
-        </div>
 
-        <div v-else-if="seriesList.length" class="series-list">
           <h2>Serie TV:</h2>
           <div class="cards-container">
             <div class="card" v-for="serie in seriesList">
