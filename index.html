@@ -26,6 +26,12 @@
           <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div>
 
+        <div v-else-if="searchedTitle && filmsList.length == 0 && seriesList.length == 0" class="no-results">
+          <h2>
+            La ricerca non ha prodotto risultati
+          </h2>
+        </div>
+
         <div v-else-if="filmsList.length || seriesList.length" class="results">
           <h2>Film:</h2>
           <div class="cards-container">

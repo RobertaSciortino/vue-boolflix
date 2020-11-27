@@ -7,14 +7,20 @@ var app = new Vue ({
     seriesList: [],
     searching: false,
     languages: ['ch', 'de', 'en', 'es', 'fr', 'it', 'ja'],
-    searchedTitle: ''
+    searchedTitle:''
   },
   methods: {
     search() {
       this.filmsList = [];
       this.seriesList = [];
 
-      if(this.userSearch.trim()){
+      let text = this.userSearch;
+      this.searchedTitle = text;
+      this.searchedTitle = this.userSearch;
+
+      if(this.userSearch.trim() != ''){
+
+        this.searching = true;
         //chiamata ajax film
         axios.get('https://api.themoviedb.org/3/search/movie', {
           params: {
@@ -24,10 +30,11 @@ var app = new Vue ({
         }).then((response) => {
           this.filmsList = response.data.results;
           console.log(this.filmsList);
+          this.searching = false;
           //assegno al voto il valore numerico su base 5 corrispondente
           this.filmsList.forEach((film) => {
             film.vote_average = Math.round(film.vote_average / 2);
-            film.flagVisible = this.languages.includes(film.original_language)
+            film.flagVisible = this.languages.includes(film.original_language);
           });
         });
 
@@ -40,10 +47,11 @@ var app = new Vue ({
         }).then((response) => {
           this.seriesList = response.data.results;
           console.log(this.seriesList);
+          this.searching = false;
           //assegno al voto il valore numerico su base 5 corrispondente
           this.seriesList.forEach((serie) => {
             serie.vote_average = Math.round(serie.vote_average / 2);
-            serie.flagVisible = this.languages.includes(serie.original_language)
+            serie.flagVisible = this.languages.includes(serie.original_language);
           });
         });
 
