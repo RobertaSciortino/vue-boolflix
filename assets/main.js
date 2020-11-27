@@ -6,7 +6,8 @@ var app = new Vue ({
     maxVote: 5,
     seriesList: [],
     searching: false,
-    languages: ['ch', 'de', 'en', 'es', 'fr', 'it', 'ja']
+    languages: ['ch', 'de', 'en', 'es', 'fr', 'it', 'ja'],
+    searchedTitle: ''
   },
   methods: {
     search() {
