@@ -63,6 +63,12 @@
                     <li class="overview">
                       Descrizione: {{film.overview}}
                     </li>
+                    <li class="cast">
+                      Cast:
+                      <p v-for="actor in getCast(film, castsFilms)">
+                        {{actor.name}}
+                      </p>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -97,6 +103,12 @@
                     </li>
                     <li class="overview">
                       Descrizione: {{serie.overview}}
+                    </li>
+                    <li class="cast">
+                      Cast:
+                      <p v-for="actor in getCast(serie, castsSeries)">
+                        {{actor.name}}
+                      </p>
                     </li>
                   </ul>
                 </div>
