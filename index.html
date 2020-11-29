@@ -69,6 +69,15 @@
                         {{actor.name}}
                       </p>
                     </li>
+                    <li class="genre"  v-if="film.genre_ids.length > 0">
+                      Genere:
+                      <p v-for="id in film.genre_ids">
+                        {{getGenre(id, filmsGenres)}}
+                      </p>
+                    </li>
+                    <li class="genre" v-else>
+                      Genere: n.d.
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -109,6 +118,15 @@
                       <p v-for="actor in getCast(serie, castsSeries)">
                         {{actor.name}}
                       </p>
+                    </li>
+                    <li class="genre"  v-if="serie.genre_ids.length > 0">
+                      Genere:
+                      <p v-for="id in serie.genre_ids">
+                        {{getGenre(id, seriesGenres)}}
+                      </p>
+                    </li>
+                    <li class="genre" v-else>
+                      Genere: 'n.d.'
                     </li>
                   </ul>
                 </div>

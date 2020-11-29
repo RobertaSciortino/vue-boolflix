@@ -9,7 +9,9 @@ var app = new Vue ({
     languages: ['ch', 'de', 'en', 'es', 'fr', 'it', 'ja'],
     searchedTitle:'',
     castsFilms: [],
-    castsSeries: []
+    castsSeries: [],
+    filmsGenres: [],
+    seriesGenres: []
   },
   methods: {
     search() {
@@ -47,7 +49,14 @@ var app = new Vue ({
               });
             });
           });
-
+        }).then(() => {
+          axios.get('https://api.themoviedb.org/3/genre/movie/list', {
+            params: {
+              api_key: 'f70b7a3263a4bd2bca0c361be3b2b3e3'
+            }
+          }).then((response) => {
+              this.filmsGenres = response.data.genres;
+            });
         });
 
         //chiamata ajax serieTV
@@ -74,7 +83,14 @@ var app = new Vue ({
               });
             });
           });
-
+        }).then(() => {
+          axios.get('https://api.themoviedb.org/3/genre/tv/list', {
+            params: {
+              api_key: 'f70b7a3263a4bd2bca0c361be3b2b3e3'
+            }
+          }).then((response) => {
+              this.seriesGenres = response.data.genres;
+            });
         });
 
       }
@@ -95,7 +111,19 @@ var app = new Vue ({
           }
         }
       }
+    },
+    getGenre(id, genresArray){
+      let genre = genresArray.find((genre) => {
+        return genre.id == id;
+      });
+      if (genre == undefined) {
+        return '';
+      } else {
+        return genre.name;
+      }
     }
+
+
   }
 
 
