@@ -33,6 +33,7 @@
         </div>
 
         <div v-else-if="filmsList.length || seriesList.length" class="results">
+          <h2>Risultati ricerca per: "{{userSearch}}"</h2>
           <h2>Film:</h2>
           <div class="cards-container">
             <div class="flip-card" v-for="film in filmsList">

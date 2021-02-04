@@ -71,6 +71,10 @@ button {
 }
 
 h2 {
+  margin: 20px;
+}
+
+h2:first-of-type {
   align-self: center;
   margin: 20px 0;
 }
