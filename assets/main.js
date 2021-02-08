@@ -18,9 +18,9 @@ var app = new Vue ({
       this.filmsList = [];
       this.seriesList = [];
 
-      let text = this.userSearch;
-      this.searchedTitle = text;
       this.searchedTitle = this.userSearch;
+      console.log(this.userSearch);
+    
 
       if(this.userSearch.trim() != ''){
 
@@ -48,6 +48,7 @@ var app = new Vue ({
                 cast: response.data.cast
               });
             });
+
           });
         }).then(() => {
           axios.get('https://api.themoviedb.org/3/genre/movie/list', {
@@ -94,6 +95,7 @@ var app = new Vue ({
         });
 
       }
+
     },
     getVote(film){
       return Math.round(film.vote_average / 2);
@@ -121,7 +123,7 @@ var app = new Vue ({
       } else {
         return genre.name;
       }
-    }
+    },
 
 
   }

@@ -19,10 +19,10 @@
             </a>
           </div>
           <div class="nav display-flex">
-            <a href="#">
+            <a href="#" @click="showFilms()">
               Film
             </a>
-            <a href="#">
+            <a href="#" @click="showSeries()">
               Serie TV
             </a>
           </div>
@@ -45,8 +45,8 @@
         </div>
 
         <div v-else-if="filmsList.length || seriesList.length" class="results display-flex">
-          <h2>Risultati ricerca per: "{{userSearch}}"</h2>
-          <h2>Film:</h2>
+          <h2>Risultati ricerca per: "{{searchedTitle}}"</h2>
+          <h2>Film</h2>
           <div class="cards-container display-flex">
             <div class="flip-card display-flex" v-for="film in filmsList">
               <div class="card">
@@ -57,39 +57,39 @@
                 <div class="info display-flex">
                   <ul>
                     <li class="title">
-                      Titolo: {{film.title}}
+                      <span> Titolo: </span> {{film.title}}
                     </li>
                     <li class="original-title">
-                      Titolo originale: {{film.original_title}}
+                      <span> Titolo originale: </span> {{film.original_title}}
                     </li>
                     <li v-if="isFlagVisible(film)" class="original-language">
-                      Lingua originale:
+                      <span> Lingua originale: </span>
                       <img :src="'img/' + film.original_language + '.png'" :alt="film.original_language">
                     </li>
                     <li v-else class="original-language">
-                      Lingua originale: {{film.original_language}}
+                      <span> Lingua originale: </span> {{film.original_language}}
                     </li>
                     <li class="vote">
                       <i class="fas fa-star" v-for="vote in getVote(film)"></i>
                       <i class="far fa-star" v-for="vote in (maxVote - getVote(film))"></i>
                     </li>
                     <li class="overview">
-                      Descrizione: {{film.overview}}
+                      <span> Descrizione: </span> {{film.overview}}
                     </li>
                     <li class="cast">
-                      Cast:
+                      <span> Cast: </span>
                       <p v-for="actor in getCast(film, castsFilms)">
                         {{actor.name}}
                       </p>
                     </li>
                     <li class="genre"  v-if="film.genre_ids.length > 0">
-                      Genere:
+                      <span> Genere:</span>
                       <p v-for="id in film.genre_ids">
                         {{getGenre(id, filmsGenres)}}
                       </p>
                     </li>
                     <li class="genre" v-else>
-                      Genere: n.d.
+                      <span> Genere:</span> n.d.
                     </li>
                     <li>
                       <a href="#">
@@ -104,7 +104,7 @@
               </div>
             </div>
           </div>
-          <h2>Serie TV:</h2>
+          <h2>Serie TV</h2>
           <div class="cards-container display-flex">
             <div class="flip-card display-flex"  v-for="serie in seriesList">
               <div class="card">
@@ -115,39 +115,47 @@
                 <div class="info display-flex">
                   <ul>
                     <li class="title">
-                      Titolo: {{serie.name}}
+                      <span> Titolo:</span> {{serie.name}}
                     </li>
                     <li class="original-title">
-                      Titolo originale: {{serie.original_title}}
+                      <span> Titolo originale: </span> {{serie.original_title}}
                     </li>
                     <li v-if="isFlagVisible(serie)" class="original-language">
-                      Lingua originale:
+                      <span> Lingua originale: </span>
                       <img :src="'img/' + serie.original_language + '.png'" :alt="serie.original_language">
                     </li>
                     <li v-else class="original-language">
-                      Lingua originale: {{serie.original_language}}
+                      <span> Lingua originale: </span> {{serie.original_language}}
                     </li>
                     <li class="vote">
                       <i class="fas fa-star" v-for="vote in getVote(serie)"></i>
                       <i class="far fa-star" v-for="vote in (maxVote - getVote(serie))"></i>
                     </li>
                     <li class="overview">
-                      Descrizione: {{serie.overview}}
+                      <span> Descrizione: </span> {{serie.overview}}
                     </li>
                     <li class="cast">
-                      Cast:
+                      <span> Cast: </span>
                       <p v-for="actor in getCast(serie, castsSeries)">
                         {{actor.name}}
                       </p>
                     </li>
                     <li class="genre"  v-if="serie.genre_ids.length > 0">
-                      Genere:
+                      <span> Genere: </span>
                       <p v-for="id in serie.genre_ids">
                         {{getGenre(id, seriesGenres)}}
                       </p>
                     </li>
                     <li class="genre" v-else>
-                      Genere: 'n.d.'
+                      <span> Genere: </span> 'n.d.'
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="fas fa-play-circle fa-3x"></i>
+                      </a>
+                      <p>
+                        Guarda ora
+                      </p>
                     </li>
                   </ul>
                 </div>
