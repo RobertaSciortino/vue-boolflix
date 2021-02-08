@@ -11,11 +11,21 @@
   </head>
   <body>
     <div id="root">
-      <header>
-        <div class="logo">
-          <a href="#">
-            <img src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png" alt="">
-          </a>
+      <header class="display-flex">
+        <div class="navbar display-flex">
+          <div class="logo">
+            <a href="#">
+              <img src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png" alt="">
+            </a>
+          </div>
+          <div class="nav display-flex">
+            <a href="#">
+              Film
+            </a>
+            <a href="#">
+              Serie TV
+            </a>
+          </div>
         </div>
         <div class="searchbar">
           <input @keyup.enter="search()" type="text" name="" value="" v-model="userSearch">
@@ -23,7 +33,7 @@
         </div>
       </header>
 
-      <main v-cloak>
+      <main class="display-flex" v-cloak>
         <div v-if="searching" class="spinner">
           <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div>
@@ -34,17 +44,17 @@
           </h2>
         </div>
 
-        <div v-else-if="filmsList.length || seriesList.length" class="results">
+        <div v-else-if="filmsList.length || seriesList.length" class="results display-flex">
           <h2>Risultati ricerca per: "{{userSearch}}"</h2>
           <h2>Film:</h2>
-          <div class="cards-container">
-            <div class="flip-card" v-for="film in filmsList">
+          <div class="cards-container display-flex">
+            <div class="flip-card display-flex" v-for="film in filmsList">
               <div class="card">
                 <div class="poster">
                   <img class="image-not-available" v-if="film.poster_path == null" src="https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png" alt="">
                   <img v-else :src="'https://image.tmdb.org/t/p/w342' + film.poster_path" alt="">
                 </div>
-                <div class="info">
+                <div class="info display-flex">
                   <ul>
                     <li class="title">
                       Titolo: {{film.title}}
@@ -95,14 +105,14 @@
             </div>
           </div>
           <h2>Serie TV:</h2>
-          <div class="cards-container">
-            <div class="flip-card"  v-for="serie in seriesList">
+          <div class="cards-container display-flex">
+            <div class="flip-card display-flex"  v-for="serie in seriesList">
               <div class="card">
                 <div class="poster">
                   <img class="image-not-available" v-if="serie.poster_path == null" src="https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png" alt="">
                   <img v-else :src="'https://image.tmdb.org/t/p/w342' + serie.poster_path" alt="">
                 </div>
-                <div class="info">
+                <div class="info display-flex">
                   <ul>
                     <li class="title">
                       Titolo: {{serie.name}}
