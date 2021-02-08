@@ -140,7 +140,20 @@ ul {
 }
 
 li {
-margin-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+li a {
+  color: white;
+}
+
+li:last-child {
+  margin-top: 15px;
+}
+
+li:last-child p {
+  font-size: 12px;
+  line-height: 2em;
 }
 
 .original-language img {
