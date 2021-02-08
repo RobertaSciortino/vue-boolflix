@@ -41,7 +41,7 @@
             <div class="flip-card" v-for="film in filmsList">
               <div class="card">
                 <div class="poster">
-                  <img class="image-not-available" v-if="film.poster_path == null" src="https://www.officinezambrano.it/s/cc_images/cache_72447477.jpg?t=1548731368" alt="">
+                  <img class="image-not-available" v-if="film.poster_path == null" src="https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png" alt="">
                   <img v-else :src="'https://image.tmdb.org/t/p/w342' + film.poster_path" alt="">
                 </div>
                 <div class="info">
@@ -91,7 +91,7 @@
             <div class="flip-card"  v-for="serie in seriesList">
               <div class="card">
                 <div class="poster">
-                  <img class="image-not-available" v-if="serie.poster_path == null" src="https://www.officinezambrano.it/s/cc_images/cache_72447477.jpg?t=1548731368" alt="">
+                  <img class="image-not-available" v-if="serie.poster_path == null" src="https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png" alt="">
                   <img v-else :src="'https://image.tmdb.org/t/p/w342' + serie.poster_path" alt="">
                 </div>
                 <div class="info">
