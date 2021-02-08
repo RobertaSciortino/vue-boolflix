@@ -36,10 +36,11 @@ main,
 }
 
 .logo {
-  color: red;
-  font-size: 40px;
-  font-weight: bold;
-  margin: 10px;
+  width: 200px;
+}
+
+.logo img{
+  width: 100%;
 }
 
 .searchbar {
