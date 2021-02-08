@@ -10,6 +10,8 @@ body {
   background-color: #333;
 }
 
+/* header */
+
 header {
   background-color: #000;
   width: 100%;
@@ -78,6 +80,8 @@ button {
   background-color: #000;
 }
 
+/* main */
+
 main{
   background-color: #333;
   width: 100vw;
@@ -107,9 +111,9 @@ h2:first-of-type {
 }
 
 .flip-card {
-  width: 344px;
-  height: 520px;
-  margin: 15px;
+  width: 258px;
+  height: 390px;
+  margin: 20px;
   perspective: 1500px;
 }
 
@@ -138,6 +142,7 @@ h2:first-of-type {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,1);
 }
 
 .info {
@@ -150,7 +155,7 @@ h2:first-of-type {
 }
 
 img.image-not-available {
-  width: 340px;
+  width: 100%;
   height: 100%;]
 }
 
@@ -161,6 +166,7 @@ ul {
 
 li {
   margin-bottom: 10px;
+  font-size: ;
 }
 
 li a {
@@ -176,6 +182,10 @@ li:last-child p {
   line-height: 2em;
 }
 
+li span {
+  font-weight: 700;
+}
+
 .original-language img {
   width: 30px;
 }
@@ -183,6 +193,7 @@ li:last-child p {
 [v-cloak] {
   display: none;
 }
+
 
 /* scrollbar*/
 ::-webkit-scrollbar {
