@@ -80,6 +80,10 @@ button {
   background-color: #000;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 /* main */
 
 main{

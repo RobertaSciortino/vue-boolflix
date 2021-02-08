@@ -19,9 +19,7 @@ var app = new Vue ({
       this.seriesList = [];
 
       this.searchedTitle = this.userSearch;
-      console.log(this.userSearch);
-    
-
+     
       if(this.userSearch.trim() != ''){
 
         this.searching = true;
