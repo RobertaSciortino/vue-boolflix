@@ -19,10 +19,10 @@
             </a>
           </div>
           <div class="nav display-flex">
-            <a href="#" @click="showFilms()">
+            <a href="#filmsSection" @click="showFilms()">
               Film
             </a>
-            <a href="#" @click="showSeries()">
+            <a href="#seriesSection" @click="showSeries()">
               Serie TV
             </a>
           </div>
@@ -46,7 +46,7 @@
 
         <div v-else-if="filmsList.length || seriesList.length" class="results display-flex">
           <h2>Risultati ricerca per: "{{searchedTitle}}"</h2>
-          <h2>Film</h2>
+          <h2 id="filmsSection">Film</h2>
           <div class="cards-container display-flex">
             <div class="flip-card display-flex" v-for="film in filmsList">
               <div class="card">
@@ -104,7 +104,7 @@
               </div>
             </div>
           </div>
-          <h2>Serie TV</h2>
+          <h2 id="seriesSection">Serie TV</h2>
           <div class="cards-container display-flex">
             <div class="flip-card display-flex"  v-for="serie in seriesList">
               <div class="card">
