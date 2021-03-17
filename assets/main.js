@@ -1,7 +1,7 @@
 var app = new Vue ({
   el: '#root',
   data: {
-    userSearch: '',
+    userSearch: 'batman',
     filmsList: [],
     maxVote: 5,
     seriesList: [],
@@ -124,6 +124,9 @@ var app = new Vue ({
     },
 
 
+  },
+  mounted: function() {
+    this.search();
   }
 
 
